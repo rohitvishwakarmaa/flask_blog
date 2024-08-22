@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+        
+        {% block content %}
+
+{% set fname = 'assets/img/allpost.png'%}
+
+
+
+
+<body  style="background-image: url('{{ url_for ('static', filename = fname )}}')">
+    
+    {% for post in posts %}
+    <div class="post" >
+        <div class="post-title">{{ post.title }}</div>
+        <div class="post-content">{{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}</div>
+        <a href="{{ url_for('post_route', post_slug=post.slug) }}" class="btn btn-primary float-right">Read more</a>
+    </div>
+    {% endfor %}
+
+    <!-- Pagination links (optional) -->
+    {% if pagination %}
+    <div class="pagination">
+        {% if pagination.has_prev %}
+        <a href="{{ url_for('all_posts', page=pagination.prev_num) }}">Previous</a>
+        {% endif %}
+        {% if pagination.has_next %}
+        <a href="{{ url_for('all_posts', page=pagination.next_num) }}">Next</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+
+
+
+    <style>
+
+
+
+        body {
+            font-family:  Segoe UI Symbol;
+            background-color: #f9f9f9;
+            color: #000000;
+            margin: 0;
+            padding: 80px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .post {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+        }
+        .post-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        .post-content {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+       
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            color: #007BFF;
+            text-decoration: none;
+            margin: 0 5px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #007BFF;
+            transition: background-color 0.3s;
+        }
+        .pagination a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
+
+ {% endblock %}

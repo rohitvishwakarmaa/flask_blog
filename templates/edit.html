@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+        
+        {% block content %}
+
+{% set fname = 'assets/img/adminblog.jpg'%}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for ('static', filename = fname )}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>ADD/EDIT</h1>
+                            <span class="subheading">ADD UPDATE AND DELETE YOUR POSTS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+         
+         <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+<h3>Add / Edit Posts</h3>
+
+<a href="/dashboard" ><button class="btn btn-primary float-right">Dashboard Home</button></a>
+<a href="/logout" ><button class="btn btn-primary float-right">Logout</button></a>
+<hr>
+
+<form action="{{ url_for('edit', sno=post.sno if post else '0') }}" method="post">
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" name="title" placeholder="Title" value="{{ post.title if post else '' }}" required>
+            <label for="title">Title</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" name="tline" placeholder="Tagline" value="{{ post.tagline if post else '' }}" required>
+            <label for="tline">Tagline</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" name="slug" placeholder="Slug" value="{{ post.slug if post else '' }}" required>
+            <label for="slug">Slug</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea class="form-control" name="content" placeholder="Content" style="height: 12rem" required>{{ post.content if post else '' }}</textarea>
+            <label for="content">Content</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" name="img_file" placeholder="Image File" value="{{ post.img_file if post else '' }}" required>
+            <label for="img_file">Image File</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<style type="text/css">
+    /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.styled-table {
+    width: 80%;
+    margin: 25px auto;
+    border-collapse: collapse;
+    font-size: 18px;
+    text-align: left;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+</style>
+
+           {% endblock %}

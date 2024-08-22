@@ -1,0 +1,20 @@
+{
+    "params": {
+        "local_server": "True",
+        "local_uri": "mysql://root:@localhost/rohitrv10",
+        "prod_uri": "mysql://root:@localhost/rohitrv10",
+        "fb_url": "https:// facebook.com/codingthunder",
+        "tw_url": "https:// twitter.com/codingthunder",
+        "gh_url": "https:// github.com/codingthunder",
+        "blog_name": "RV'S BLOG",
+        "tag_line": "BLOG 'S ARE HERE",
+        "gmail-user":"",
+        "gmail-password":"",
+        "about_text": "\"Welcome to our blog! We are a team of AI enthusiasts, led by Rohit, a B.Tech student specializing in Artificial Intelligence. Our mission is to explore and demystify the world of AI through insightful articles, tutorials, and discussions. Whether you're a fellow student, a tech professional, or just curious about AI, you'll find something valuable here. Join us as we navigate the exciting frontier of artificial intelligence!\"\n\n\n\n\n\n\n",
+        "no_of_posts": 3,
+        "admin_user":"Rohit",
+        "admin_password": "@#123@#",
+        "upload_location": "static/assets/img",
+        "UPLOAD_FOLDER" : "static/assets/img"
+    }
+}
